@@ -12,6 +12,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   padding: 27px;
+  gap: 2.5rem;
 }
 
 .shopping-list-card::before {
@@ -26,8 +27,49 @@
   z-index: -1;
 }
 
+.shopping-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .shopping-list-title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   margin: 0;
+}
+
+.change-name-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.change-name-button:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.09);
+}
+
+.add-item-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1a46c0;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-item-button:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.09);
 }
