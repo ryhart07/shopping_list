@@ -32,6 +32,7 @@ function ShoppingList() {
         </div>
         <div className="shopping-list-items-container">
           <button className="add-item-button" onClick={addItem}>Add Item</button>
+          <h1 className="shopping-list-items-title">Items:</h1>
         </div>
       </div>
     </div>
