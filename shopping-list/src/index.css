@@ -109,3 +109,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: scale(1.09);
 }
+
+
+
+@media (min-width: 1600px) {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .shopping-list-card {
+    width: 50%;
+  }
+}
