@@ -4,6 +4,23 @@ function ShoppingList() {
 
   function getUsername() {
     const username = prompt("Please enter your name:");
+    if (username === null) {
+      alert("Username input cancelled. Defaulting to 'Guest'.");
+      return "Guest";
+    }
+    
+    // Validation checks for username
+    if (username.length > 20) {
+      alert("Username must be 20 characters or less. Please try again.");
+      return getUsername();
+    } else if (username.trim() === "") {
+      alert("Username cannot be empty. Please try again.");
+      return getUsername();
+    } else if (username.includes(" ")) {
+      alert("Username cannot contain spaces. Please try again.");
+      return getUsername();
+    }
+
     console.log("Username entered:", username);
     return username ? username : "Guest";
   }
