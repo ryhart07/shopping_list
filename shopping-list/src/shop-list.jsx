@@ -8,12 +8,11 @@ function ShoppingList() {
     return username ? username : "Guest";
   }
 
-  const changeUsername = () => {
+  function changeUsername () {
     setUsername(getUsername());
   }
   
   const [username, setUsername] = useState(getUsername);
-
 
   function addItem() {
     const item = prompt("Enter an item to add to the shopping list:");
@@ -30,9 +29,10 @@ function ShoppingList() {
           <h1 className="shopping-list-title">{username}'s Shopping List</h1>
           <button className="change-name-button" onClick={changeUsername}>Change Username</button>
         </div>
+        <div className="divider-line"></div>
         <div className="shopping-list-items-container">
-          <button className="add-item-button" onClick={addItem}>Add Item</button>
           <h1 className="shopping-list-items-title">Items:</h1>
+          <button className="add-item-button" onClick={addItem}>Add Item</button>
         </div>
       </div>
     </div>
