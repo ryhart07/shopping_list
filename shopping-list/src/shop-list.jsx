@@ -64,7 +64,6 @@ function ShoppingList() {
         </div>
         <div className="divider-line"></div>
         <div className="shopping-list-items-container">
-          <h1>test</h1>
           <div className="items-header">
             <h1 className="shopping-list-items-title">Items:</h1>
             <button className="add-item-button" onClick={addItem}>Add Item</button>
