@@ -147,7 +147,7 @@
 }
 
 .item-name {
-  font-size: clamp(14px, 1.85vw, 27px);
+  font-size: clamp(25px, 1.85vw, 27px);
   font-weight: 535;
 }
 
@@ -206,4 +206,6 @@
   .right-of-item-card {
     margin-top: 10px;
   }
+
+
 }
