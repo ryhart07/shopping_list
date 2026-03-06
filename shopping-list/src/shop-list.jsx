@@ -11,7 +11,6 @@ function ShoppingList() {
       return "Guest";
     }
     
-    // Validation checks for username
     if (username.length > 20) {
       alert("Username must be 20 characters or less. Please try again.");
       return getUsername();
