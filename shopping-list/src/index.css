@@ -87,8 +87,18 @@
 
 .shopping-list-items-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 32px;
+}
+
+.items-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
 }
@@ -110,7 +120,22 @@
   transform: scale(1.09);
 }
 
+.item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
+.item-name {
+  font-size: clamp(14px, 1.85vw, 27px);
+  font-weight: 535;
+}
 
 @media (min-width: 1600px) {
   .container {

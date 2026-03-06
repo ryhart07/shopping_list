@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 function ShoppingList() {
+  const [items, setItems] = useState([]);
+  const [username, setUsername] = useState(getUsername);
 
   function getUsername() {
     const username = prompt("Please enter your name:");
@@ -29,12 +31,12 @@ function ShoppingList() {
     setUsername(getUsername());
   }
   
-  const [username, setUsername] = useState(getUsername);
+
 
   function addItem() {
     const item = prompt("Enter an item to add to the shopping list:");
-    if (item) {
-      // Logic to add the item to the shopping list (not implemented yet)
+    if (item && item.trim() !== "") {
+      setItems((prevItems) => [...prevItems, item.trim()]);
       console.log(`Added ${item} to the shopping list.`);
     }
   }
@@ -48,8 +50,16 @@ function ShoppingList() {
         </div>
         <div className="divider-line"></div>
         <div className="shopping-list-items-container">
-          <h1 className="shopping-list-items-title">Items:</h1>
-          <button className="add-item-button" onClick={addItem}>Add Item</button>
+          <div className="items-header">
+            <h1 className="shopping-list-items-title">Items:</h1>
+            <button className="add-item-button" onClick={addItem}>Add Item</button>
+          </div>
+          {items.map((item, index) => (
+            <div className="item-container" key={`${item}-${index}`}>
+              <h1 className="item-title">Item Number: {index + 1}:</h1>
+              <p className="item-name">{item}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
