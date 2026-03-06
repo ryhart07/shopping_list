@@ -30,15 +30,30 @@ function ShoppingList() {
   function changeUsername () {
     setUsername(getUsername());
   }
-  
-
 
   function addItem() {
     const item = prompt("Enter an item to add to the shopping list:");
     if (item && item.trim() !== "") {
-      setItems((prevItems) => [...prevItems, item.trim()]);
+      setItems((prevItems) => [
+        ...prevItems,
+        { name: item.trim(), isCompleted: false },
+      ]);
       console.log(`Added ${item} to the shopping list.`);
     }
+  }
+
+  function completeItem(indexToToggle) {
+    setItems((prevItems) =>
+      prevItems.map((item, index) =>
+        index === indexToToggle
+          ? { ...item, isCompleted: !item.isCompleted }
+          : item
+      )
+    );
+  }
+
+  function deleteItem(indexToDelete) {
+    setItems((prev) => prev.filter((_, index) => index !== indexToDelete));
   }
 
   return (
@@ -55,9 +70,20 @@ function ShoppingList() {
             <button className="add-item-button" onClick={addItem}>Add Item</button>
           </div>
           {items.map((item, index) => (
-            <div className="item-container" key={`${item}-${index}`}>
-              <h1 className="item-title">Item Number: {index + 1}:</h1>
-              <p className="item-name">{item}</p>
+            <div
+              className={`item-container ${item.isCompleted ? "item-container-completed" : ""}`}
+              key={`${item.name}-${index}`}
+            >
+              <div className="left-of-item-card">
+                <h1 className="item-title">Item Number {index + 1}:</h1>
+                <p className="item-name">{item.name}</p>
+              </div>
+              <div className="right-of-item-card">
+                <button className="complete-button" onClick={() => completeItem(index)}>
+                  {item.isCompleted ? "Undo" : "Complete"}
+                </button>
+                <button className="delete-button" onClick={() => deleteItem(index)}>Delete</button>
+              </div>
             </div>
           ))}
         </div>
