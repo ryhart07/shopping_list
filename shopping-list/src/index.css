@@ -138,6 +138,12 @@
 
 .item-container-completed {
   opacity: 0.5;
+  transition: 0.2s;
+}
+
+.item-container-completed .item-name {
+  text-decoration: line-through;
+  color: #888888;
 }
 
 .left-of-item-card {
