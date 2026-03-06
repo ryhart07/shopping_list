@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+    # Optional: remove this if you want every push to master to deploy
     paths:
       - 'shopping-list/**'
   workflow_dispatch:
@@ -32,7 +33,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: shopping-list/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -43,7 +44,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: shopping-list/dist
+          path: dist  # <-- fixed: relative to working-directory
 
   deploy:
     needs: build
