@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - master
-    # Optional: remove this if you want every push to master to deploy
-    paths:
-      - 'shopping-list/**'
   workflow_dispatch:
 
 permissions:
